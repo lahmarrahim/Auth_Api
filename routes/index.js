@@ -17,13 +17,13 @@ router.post('/addadmin', actions.addAdmin)
 router.post('/addexpert', actions.addExpert)
 
 //@desc Authenticate a user
-//@route POST /authenticate
+//@route POST /authenticateuser
 router.post('/authenticateuser', actions.authenticateUser)
 router.post('/authenticateadmin', actions.authenticateAdmin)
 router.post('/authenticateexpert', actions.authenticateExpert)
 
-
-//@route DELETE /
+//@desc delete a user
+//@route DELETE /deleteuser
 router.delete("/deleteuser/:id", actions.deleteUser);
 router.delete("/deleteexpert/:id", actions.deleteExpert);
 
