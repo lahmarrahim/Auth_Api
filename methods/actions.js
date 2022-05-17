@@ -87,7 +87,7 @@ var functions = {
                 user.comparePassword(req.body.password, function (err, isMatch) {
                     if (isMatch && !err) {
                         var token = jwt.encode(user, config.secret)
-                        res.json({ success: true, token: token })
+                        res.json({ success: true, token: token, user: user._id, numtel: user.numtel })
                     }
                     else {
                         return res.status(403).send({ success: false, msg: 'Authentication failed, wrong password' })
@@ -112,7 +112,7 @@ var functions = {
                 admin.comparePassword(req.body.password, function (err, isMatch) {
                     if (isMatch && !err) {
                         var token = jwt.encode(admin, config.secret)
-                        res.json({ success: true, token: token })
+                        res.json({ success: true, token: token, admin: admin._id, numtel: admin.numtel })
                     }
                     else {
                         return res.status(403).send({ success: false, msg: 'Authentication failed, wrong password' })
@@ -136,7 +136,7 @@ var functions = {
                 expert.comparePassword(req.body.password, function (err, isMatch) {
                     if (isMatch && !err) {
                         var token = jwt.encode(expert, config.secret)
-                        res.json({ success: true, token: token })
+                        res.json({ success: true, token: token, expert: expert._id, numtel: expert.numtel })
                     }
                     else {
                         return res.status(403).send({ success: false, msg: 'Authentication failed, wrong password' })
